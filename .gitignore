@@ -8,3 +8,6 @@ __pycache__/
 
 # Environments
 venv/
+
+# Configuratig file
+config.py
