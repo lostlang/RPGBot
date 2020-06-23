@@ -8,3 +8,6 @@ __pycache__/
 
 # Environments
 venv/
+
+# Databases
+*.db

@@ -1,5 +1,4 @@
 from logic.xml_work import Page
-from aiogram.types import InlineKeyboardButton, InlineKeyboardMarkup
 
 
 def return_page(lang, name_page) -> tuple:

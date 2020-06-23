@@ -2,7 +2,7 @@ from os.path import exists
 from sys import platform
 from lxml.etree import parse, tostring, Element, SubElement, ElementTree, XMLParser
 
-from config import content_folder_name
+from config.base import content_folder_name
 
 
 class Page:

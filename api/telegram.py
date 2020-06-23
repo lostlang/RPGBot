@@ -2,7 +2,7 @@ import asyncio
 from aiogram import Bot, Dispatcher
 from aiogram.types import Message, CallbackQuery, InlineKeyboardButton, InlineKeyboardMarkup
 
-from config import telegram_bot_kwargs
+from config.base import telegram_bot_kwargs
 from logic import commands
 
 
