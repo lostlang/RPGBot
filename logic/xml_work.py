@@ -1,8 +1,7 @@
 from os.path import exists
-from sys import platform
 from lxml.etree import parse, tostring, Element, SubElement, ElementTree, XMLParser
 
-from config.base import content_folder_name
+from config.base import content_folder_name, system_slash
 
 
 class Page:
@@ -12,12 +11,7 @@ class Page:
     key = Element('key')
 
     def __init__(self, lang: str, name_page: str):
-        if platform == "win32":
-            ec = "\\"
-        else:
-            ec = "/"
-
-        self.name_page = self.folder.format(ec, lang, name_page)
+        self.name_page = self.folder.format(system_slash, lang, name_page)
 
         if exists(self.name_page):
             self._load()
