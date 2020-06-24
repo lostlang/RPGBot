@@ -3,7 +3,12 @@ from aiogram import Bot, Dispatcher
 from aiogram.types import Message, CallbackQuery, InlineKeyboardButton, InlineKeyboardMarkup
 
 from config.base import telegram_bot_kwargs
+from config.start_data_database import platforms
 from logic import commands
+
+
+platform_name = "telegram"
+platform_id = platforms.index(platform_name) + 1
 
 
 def keys2inline(keys):
