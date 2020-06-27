@@ -25,7 +25,8 @@ telegram_dp = Dispatcher(telegram_bot, telegram_loop)
 
 @telegram_dp.message_handler(commands="start")
 async def start_bot(message: Message):
-    text, keys = commands.start_bot()
+    lang = commands.search_player(platform_id, message.from_user.id)
+    text, keys = commands.start_bot(lang)
     await message.answer(text, reply_markup=keys2inline(keys))
 
 

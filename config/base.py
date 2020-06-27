@@ -10,3 +10,5 @@ content_folder_name = "content"
 database_name = "rpgDB"
 
 system_slash = "\\" if platform == "win32" else "/"
+
+default_lang = "ru"

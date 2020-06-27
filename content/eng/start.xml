@@ -1,7 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <page>
-    <text></text>
+    <text>
+        Hi, new user.
+        How switch language click to ️🇷🇺.
+    </text>
     <keys>
-        <key></key>
+        <line>
+            <key>🇷🇺</key>
+        </line>
     </keys>
 </page>

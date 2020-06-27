@@ -7,7 +7,7 @@ structure = {
                "user_id": int},
     "player_aliases": {"player_id": int,
                        "platform_id": int,
-                       "alias_id": int},
+                       "user_id": int},
     "platform": {"platform_id": int,
                  "platform_name": str},
 }
