@@ -1,42 +1,52 @@
-structure = {
-    "player": {"player_id": int,
-               "login_player": str,
-               "selected_language": str,
+import config.naming as naming
 
-               "platform_id": int,
-               "user_id": int},
-    "player_aliases": {"player_id": int,
-                       "platform_id": int,
-                       "user_id": int},
-    "platform": {"platform_id": int,
-                 "platform_name": str},
+structure = {
+    naming.player: {naming.player_id: int,
+                    naming.name: str,
+                    naming.player_language: str,
+
+                    naming.platform_id: int,
+                    naming.user_id: int},
+    naming.player_aliases: {naming.player_id: int,
+                            naming.platform_id: int,
+                            naming.user_id: int},
+    naming.platform: {naming.platform_id: int,
+                      naming.name: str},
+    naming.stat: {naming.stat_id: int,
+                  naming.name: str,
+                  naming.is_primal: bool},
+    naming.skill: {naming.skill_id: int,
+                   naming.name: str,
+                   naming.is_primal: bool}
 }
 
 stat_structure = {
-    "player_id": int,
-    "is_main": bool,
-    "base_value": int,
-    "append_value": int,
-    "buff_value": float,
+    naming.player_id: int,
+    naming.primal_value: int,
+    naming.adaptive_value: int,
+    naming.buff_value: float,
 }
 
 skill_structure = {
-    "player_id": int,
-    "level": int,
-    "current_exp": int,
-    "need_exp": int,
-    "buff_exp": float,
+    naming.player_id: int,
+    naming.current_level: int,
+    naming.current_experience: int,
+    naming.buff_value: float,
 }
 
 primary_keys = {
-    "player": "player_id",
-    "platform": "platform_id",
+    naming.platform: naming.platform_id,
+    naming.player: naming.player_id,
+    naming.stat: naming.stat_id,
+    naming.skill: naming.skill_id,
 }
 
 foreign_keys = {
-    (r"\bplayer\b", "platform_id"): ("platform", "platform_id"),
-    (r"player_aliases", "player_id"): ("player", "player_id"),
-    (r"player_aliases", "platform_id"): ("platform", "platform_id"),
-    (r"stat*", "player_id"): ("player", "player_id"),
-    (r"skill*", "player_id"): ("player", "player_id"),
+    (rf"\b{naming.player}\b", naming.platform_id): (naming.platform, naming.platform_id),
+    (rf"{naming.player_aliases}", naming.player_id): (naming.player, naming.player_id),
+    (rf"{naming.player_aliases}", naming.platform_id): (naming.platform, naming.platform_id),
+    (rf"{naming.stat}.", naming.player_id): (naming.player, naming.player_id),
+    (rf"{naming.skill}.", naming.player_id): (naming.player, naming.player_id),
 }
+
+
