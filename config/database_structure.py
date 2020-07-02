@@ -28,16 +28,16 @@ structure = {
                       naming.base_defense: int,
                       naming.base_evasion: int,
                       naming.stat_per_level: float},
-    naming.loot: {naming.loot_id,
-                  naming.name},
-    naming.drop: {naming.loot_id,
-                  naming.beast_id,
-                  naming.current_value,
-                  naming.max_value},
-    naming.inventory: {naming.player_id,
-                       naming.loot_id,
-                       naming.current_value,
-                       naming.max_value}
+    naming.loot: {naming.loot_id: int,
+                  naming.name: str},
+    naming.drop: {naming.loot_id: int,
+                  naming.beast_id: int,
+                  naming.current_value: int,
+                  naming.max_value: int},
+    naming.inventory: {naming.player_id: int,
+                       naming.loot_id: int,
+                       naming.current_value: int,
+                       naming.max_value: int}
 
 }
 

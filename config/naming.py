@@ -12,7 +12,7 @@ skill: str = "skill"
 need_experience: str = "need_experience"
 bestiary: str = "bestiary"
 loot: str = "loot"
-drop: str = "drop"
+drop: str = "drops"
 inventory: str = "inventory"
 
 # Column Names
@@ -45,7 +45,7 @@ current_experience: str = "current_experience"
 experience: str = "experience"
 
 # Bestiary
-beast_id: str = "id"
+beast_id: str = "beast_id"
 min_lvl: str = "min_level"
 max_lvl: str = "max_level"
 base_attack: str = "base_attack"

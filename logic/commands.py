@@ -6,13 +6,7 @@ import config.naming as naming
 game_database = Database(database_name)
 
 
-def return_page(lang: str, name_page: str) -> tuple:
-    page = Page(lang, name_page)
-    text = page.get_text()
-    keys = page.get_keys()
-    return text, keys
-
-
+# Database
 def get_player_id(platform: int, user_id: int) -> int or None:
     tables = (
         naming.player,
@@ -41,11 +35,20 @@ def get_language(player_id: int) -> str:
         return lang[0]
 
 
-def start_bot(lang: str) -> tuple:
-    text, keys = return_page(lang, "start")
+def register_player(name: str, platform: int, user_id: int):
+    game_database.add_to_table(naming.player, (name, default_lang, platform, user_id))
+
+
+# Other
+def return_page(lang: str, name_page: str) -> tuple:
+    page = Page(lang, name_page)
+    text = page.get_text()
+    keys = page.get_keys()
     return text, keys
 
 
-def register_player(name: str, platform: int, user_id: int):
-    game_database.add_to_table(naming.player, (name, default_lang, platform, user_id))
+# Logic
+def start_bot(lang: str) -> tuple:
+    text, keys = return_page(lang, "start")
+    return text, keys
 
