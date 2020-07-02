@@ -4,7 +4,6 @@ from config.base import database_name, default_lang
 import config.naming as naming
 
 game_database = Database(database_name)
-game_database.migrate()
 
 
 def return_page(lang: str, name_page: str) -> tuple:
@@ -14,29 +13,32 @@ def return_page(lang: str, name_page: str) -> tuple:
     return text, keys
 
 
-def search_player(platform: int, user_id: int) -> int:
-    need = (
+def get_player_id(platform: int, user_id: int) -> int or None:
+    tables = (
         naming.player,
-        (naming.player_language, )
+        naming.player_aliases,
     )
-    main_table = (
+    need_column = (
+        naming.player_id,
+    )
+    input_column = (
         naming.platform_id,
         naming.user_id
     )
-    alias_table = (
-        naming.player_id,
-    )
-
-    lang = game_database.search(*need, main_table, (platform, user_id))
-    if lang is None:
-        lang = game_database.search(naming.player_aliases, alias_table, main_table, (platform, user_id))
+    for table in tables:
+        id_player = game_database.get_data(table, need_column, input_column, (platform, user_id))
+        if id_player is not None:
+            return id_player[0]
     else:
-        return lang[0]
+        return None
+
+
+def get_language(player_id: int) -> str:
+    lang = game_database.get_data(naming.player, (naming.player_language, ), (naming.player_id, ), (player_id, ))
     if lang is None:
-        register(platform, user_id)
         return default_lang
     else:
-        return game_database.search(*need, alias_table, (lang, ))
+        return lang[0]
 
 
 def start_bot(lang: str) -> tuple:
@@ -44,6 +46,6 @@ def start_bot(lang: str) -> tuple:
     return text, keys
 
 
-def register(platform: int, user_id: int):
-    game_database.add_to_table(naming.player, (None, default_lang, platform, user_id))
+def register_player(name: str, platform: int, user_id: int):
+    game_database.add_to_table(naming.player, (name, default_lang, platform, user_id))
 

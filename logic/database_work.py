@@ -121,5 +121,5 @@ class Database:
             print("No")
 
     @_open
-    def search(self, table_name: str, column_need: list, column_search: list, column_value: list, cursor=None):
+    def get_data(self, table_name: str, column_need: list, column_search: list, column_value: list, cursor=None):
         return search_column(cursor, table_name, column_need, column_search, column_value)

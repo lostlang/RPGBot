@@ -21,18 +21,28 @@ telegram_bot = Bot(**telegram_bot_kwargs)
 telegram_loop = asyncio.get_event_loop()
 telegram_dp = Dispatcher(telegram_bot, telegram_loop)
 
+
+def get_id(message: Message) -> int:
+    id_player = commands.get_player_id(platform_id, message.from_user.id)
+    if id_player is None:
+        commands.register_player(message.from_user.full_name, platform_id, message.from_user.id)
+        id_player = commands.get_player_id(platform_id, message.from_user.id)
+    return id_player
+
 # Actions
 
 
 @telegram_dp.message_handler(commands="start")
 async def start_bot(message: Message):
-    lang = commands.search_player(platform_id, message.from_user.id)
+    id_player = get_id(message)
+    lang = commands.get_language(id_player)
     text, keys = commands.start_bot(lang)
     await message.answer(text, reply_markup=keys2inline(keys))
 
 
 @telegram_dp.message_handler()
 async def echo(message: Message):
+    id_player = get_id(message)
     await message.answer(message)
 
 

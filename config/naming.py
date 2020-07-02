@@ -9,7 +9,11 @@ platform: str = "platform"
 player_aliases: str = "player_aliases"
 stat: str = "stat"
 skill: str = "skill"
-
+need_experience: str = "need_experience"
+bestiary: str = "bestiary"
+loot: str = "loot"
+drop: str = "drop"
+inventory: str = "inventory"
 
 # Column Names
 # All
@@ -36,6 +40,26 @@ adaptive_value: str = "adaptive_value"
 skill_id: str = "skill_id"
 current_level: str = "current_level"
 current_experience: str = "current_experience"
+
+# Need experience for lvl-up
+experience: str = "experience"
+
+# Bestiary
+beast_id: str = "id"
+min_lvl: str = "min_level"
+max_lvl: str = "max_level"
+base_attack: str = "base_attack"
+base_defense: str = "base_defense"
+base_evasion: str = "base_evasion"
+stat_per_level: str = "stat"
+
+# Loot
+loot_id: str = "loot_id"
+
+# Drop & Inventory
+current_value: str = "current"
+max_value: str = "max"
+
 # End structure database naming
 
 # Naming platforms
