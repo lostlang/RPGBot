@@ -5,7 +5,7 @@ import sqlite3
 from config.base import content_folder_name, system_slash
 from config.database_structure import structure, stat_structure, skill_structure, primary_keys, foreign_keys
 from config.start_data_database import add_to_tables, stats, skills
-import config.naming as naming
+import naming
 
 
 def to_column(values: dict) -> str:

@@ -1,7 +1,7 @@
 from logic.xml_work import Page
 from logic.database_work import Database
 from config.base import database_name, default_lang
-import config.naming as naming
+import naming
 
 game_database = Database(database_name)
 

@@ -1,4 +1,4 @@
-import config.naming as naming
+import naming
 
 structure = {
     naming.player: {naming.player_id: int,

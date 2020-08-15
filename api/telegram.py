@@ -5,7 +5,7 @@ from aiogram.types import Message, CallbackQuery, InlineKeyboardButton, InlineKe
 from config.base import telegram_bot_kwargs
 from config.start_data_database import platforms
 from logic import commands
-from config.naming import telegram
+from naming import telegram
 
 
 platform_name = telegram

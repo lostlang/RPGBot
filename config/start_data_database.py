@@ -1,4 +1,4 @@
-import config.naming as naming
+import naming
 
 platforms = (
     naming.telegram,
