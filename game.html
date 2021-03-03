@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Monstervers</title>
+    <link rel="stylesheet" href="source/scss/game.css">
+</head>
+<body>
+    <div class="menu">
+        <div class="menu__top">
+            <div class="container">
+                <div class="button" id="profile">
+                    <div class="circle"></div>
+                    <div class="button__image"></div>
+                </div>
+            </div>
+        </div>
+        <div class="menu__central">
+            <div class="container">
+                <div class="button" id="team">
+                    <div class="button__image"></div>
+                </div>
+                <div class="button" id="inventory">
+                    <div class="button__image"></div>
+                </div>
+                <div class="button" id="craft">
+                    <div class="button__image"></div>
+                </div>
+                <div class="button" id="sale">
+                    <div class="button__image"></div>
+                </div>
+                <div class="button" id="mail">
+                    <div class="button__image"></div>
+                </div>
+                <div class="button" id="players">
+                    <div class="button__image"></div>
+                </div>
+                <div class="button" id="events">
+                    <div class="button__image"></div>
+                </div>
+            </div>
+        </div>
+        <div class="menu__bottom"></div>
+    </div>
+    <div class="activity">
+        <div class="game">
+            <div class="loacation">
+                <div class="move_list">
+                    <div class="move">
+                        <span id="0">Дорога 1</span>
+                    </div>
+                    <div class="move">
+                        <span id="1">Дорога 7</span>
+                    </div>
+                    <div class="move">
+                        <span id="2">Лес вокруг стадиона</span>
+                    </div>
+                    <div class="move">
+                        <span id="2">Главная площадь</span>
+                    </div>
+                </div>
+                <div class="container">
+                    <div class="loacation_info">
+                        <div class="name">
+                            <span>Дорога 2</span>
+                            <div class="info">i</div>
+                        </div>
+                        <div class="discription"> 
+                            <span>Тут могла быть ваша реклама, но будет описание</span>
+                        </div>
+                        <div class="discription_advance">
+                            <span>Тут могла быть ваша реклама, но будет описание</span>
+                        </div>
+                    </div>
+                    <div class="location_equip_list">
+                        <div class="button" id="rope">
+                            <div class="back"></div>
+                            <div class="button__image"></div>
+                        </div>
+                        <div class="button" id="fishing_rod">
+                            <div class="back"></div>
+                            <div class="button__image"></div>
+                        </div>
+                    </div>
+                    <div class="location_action_list">
+                        <div class="button" id="archeology">
+                            <div class="button__image"></div>
+                        </div>
+                        <div class="button" id="basket">
+                            <div class="button__image"></div>
+                        </div>
+                        <div class="button" id="wild">
+                            <div class="button__image"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="npc_list">
+                    <div class="nps" id="0">
+                        <span>Офицер Джени</span>
+                    </div>
+                    <div class="nps" id="1">
+                        <span>Бедный фотограф</span>
+                    </div>
+                    <div class="nps" id="2">
+                        <span>Жена бедного фотографа</span>
+                    </div>
+                </div>
+            </div>
+            <div class="battle">
+                <div class="monster" id="player">
+                    <div class="team">
+                        <div class="container">
+                            <div class="ball" id="m1">
+                                <div class="ball__image"></div>
+                                <div class="ball__monster"></div>
+                            </div>
+                            <div class="ball die" id="m2">
+                                <div class="ball__image"></div>
+                                <div class="ball__monster"></div>
+                            </div>
+                            <div class="ball inactive" id="m3">
+                                <div class="ball__image"></div>
+                                <div class="ball__monster"></div>
+                            </div>
+                            <div class="ball inactive" id="m4">
+                                <div class="ball__image"></div>
+                                <div class="ball__monster"></div>
+                            </div>
+                            <div class="ball inactive" id="m5">
+                                <div class="ball__image"></div>
+                                <div class="ball__monster"></div>
+                            </div>
+                            <div class="ball inactive" id="m6">
+                                <div class="ball__image"></div>
+                                <div class="ball__monster"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="container">
+                        <div class="monster__title">
+                            <span>
+                                Dark Fox
+                            </span>
+                        </div>
+                        <div class="monster__image"></div>
+                        <div class="container">
+                            <div class="monster__lvl">
+                                <div class="circle"></div>
+                                <span>5</span>
+                            </div>
+                            <div class="status_list">
+                                <div class="starus" id="fire"></div>
+                            </div>
+                            <div class="monster__item">
+                                <div class="back"></div>
+                                <div class="image"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="battle__log">
+                    
+                </div>
+                <div class="monster" id="enemy"></div>
+            </div>
+            <div class="dangeon"></div>
+        </div>
+        <div class="texting">
+            <div class="chat">
+                <div class="chat__tabs">
+                    <div class="chat__tab">
+                        <span>Регион</span>
+                        <div class="new"></div>
+                        <div class="button">
+                            <div class="button__image close"></div>
+                        </div>
+                    </div>
+                    <div class="chat__tab">
+                        <span>Локация</span>
+                        <div class="button">
+                            <div class="button__image close"></div>
+                        </div>
+                    </div>
+                    <div class="chat__tab">
+                        <span>Торговый</span>
+                        <div class="button">
+                            <div class="button__image close"></div>
+                            <div class="circle"></div>
+                        </div>
+                    </div>
+                    <div class="chat__tab">
+                        <span>lostlang</span>
+                        <div class="button">
+                            <div class="button__image close"></div>
+                        </div>
+                    </div>
+                    <div class="chat__tab active">
+                        <span>Night cat</span>
+                        <div class="button">
+                            <div class="button__image close"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="chat__log">
+                    <div class="messange">
+                        <span class="time">21:00</span>
+                        <div class="user">
+                            <div class="info">i</div>
+                            <span class="label">lostlang</span>
+                        </div>
+                        <div class="to">
+                            <span>></span>
+                            <div class="user">
+                                <div class="info">i</div>
+                                <span class="label">Night cat</span>
+                            </div>
+                            <span>: </span>
+                        </div>
+                        <span class="text my">
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse porta ipsum purus, eu sodales elit imperdiet vitae.
+                            Sed at rhoncus leo. Morbi luctus felis nec quam pharetra ultricies. In sed lectus porta, scelerisque risus ut, fermentum dui.
+                            Pellentesque interdum erat non magna pulvinar placerat. Quisque interdum posuere massa ac fermentum. Etiam accumsan ex eu fermentum rhoncus.
+                            Nullam mattis pulvinar eros ullamcorper vestibulum.
+                        </span>
+                    </div>
+                    <div class="messange">
+                        <span class="time">21:02</span>
+                        <div class="user">
+                            <div class="info">i</div>
+                            <span class="label">Night cat</span>
+                        </div>
+                        <div class="to">
+                            <span>></span>
+                            <div class="user">
+                                <div class="info">i</div>
+                                <span class="label">lostlang</span>
+                            </div>
+                            <span>: </span>
+                        </div>
+                        <span class="text">
+                            Что за хуйня, Саня?
+                        </span>
+                    </div>
+                </div>
+                <div class="chat__send">
+                    <input type="text" class="text_input" id="adresant">
+                    <div class="button" id="clear_adresant">
+                        <div class="button__image close"></div>
+                    </div>
+                    <div class="container">
+                        <input type="text" class="text_input" id="text_messange">
+                        <div class="button"  id="open_smile_list">
+                            <div class="button__image"></div>
+                        </div>
+                    </div>
+                    <div class="button"  id="send_messange">
+                        <div class="button__image"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="people">
+                <div class="people__minimize">
+                    <div class="button" id="minimize_people">
+                        <div class="button__image"></div>
+                    </div>
+                </div>
+                <div class="container">
+                    <div class="tab_naming" id="naming_player">
+                        <p>Люди на локации: </p>
+                    </div>
+                    <div class="players">
+                        <div class="players__search">
+                            <input type="text" class="text_input" id="local_players_search">
+                            <div class="button" id="local_players_search">
+                                <div class="button__image"></div>
+                            </div>
+                        </div>
+                        <div class="players__list">
+                            <div class="user">
+                                <div class="info">i</div>
+                                <span class="label">lostlang</span>
+                            </div>
+                            <div class="user">
+                                <div class="info">i</div>
+                                <span class="label">Night cat</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="tab_naming" id="naming_battle">
+                        <div class="button" id="open">
+                            <div class="button__image"></div>
+                        </div>
+                        <p>Бои на локации: </p>
+                    </div>
+                    <div class="battles">
+                        <div class="battle">
+                            <div class="user">
+                                <div class="info">i</div>
+                                <span class="label">lostlang</span>
+                            </div>
+                            <span>vs</span>
+                            <div class="user">
+                                <div class="info">i</div>
+                                <span class="label">Night cat</span>
+                            </div>
+                            <div class="button" id="maximize">
+                                <div class="button__image"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

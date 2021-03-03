@@ -1,0 +1,522 @@
+@import "nullstyle.scss";
+@import "dev.scss";
+@import "shapes.scss";
+@import "load_image.scss";
+
+
+// variables
+$colorMain: #c7cedf;
+$colorContrast: #3b4b60;
+$colorContrast2: #fa8b46;
+$colorContrast3: #34e382;
+$colorContrast4: #d7fa46;
+$colorContrast5: #fa422d;
+$colorGray: #a0a9b7;
+$widthMenu: 70px;
+$widthNotCentralMenuBlock: 20%;
+$sizeMenuButton: 50px;
+$sizeMinibutton: 20px;
+$borderRadiusCentralMenu: 20px;
+$paddingButton: ($widthMenu - $sizeMenuButton) / 2;
+$widthPeople: 300px;
+
+
+// mixins
+@mixin hw($height, $width) {
+    height: $height;
+    width: $width;
+}
+
+@mixin button_construct($height, $width) {
+    @include hw($height, $width);
+    div {
+        @include hw($height, $width);
+    };
+}
+
+body {
+    background: $colorMain;
+    .menu {
+        @include hw(100%, $widthMenu);
+    };
+    .activity {
+        @include hw(100%, 100%);
+        .game {
+            @include hw(50%, 100%);
+        };
+        .texting {
+            @include hw(50%, 100%);
+        };
+    };
+}
+
+.button {
+    cursor: pointer;
+    * {
+        position: absolute;
+    }
+}
+
+.menu {
+    .container {
+        @include hw(100%, 100%);
+        padding: $paddingButton;
+    };
+    .button {
+        @include button_construct($sizeMenuButton, $sizeMenuButton);
+    }
+    &__top {
+        @include hw($widthNotCentralMenuBlock, 100%);
+        .container {
+            padding-top: $paddingButton;
+        };
+        .button {
+            .circle {
+                background: $colorContrast
+            }
+            &__image {
+                border-bottom-right-radius: 100%;
+	            border-bottom-left-radius: 100%;
+            };
+        };
+    };
+    &__central {
+        @include hw(100% - 2 * $widthNotCentralMenuBlock, 100%);
+        box-sizing: border-box;
+        border: 3px solid $colorContrast;
+        border-bottom-right-radius: $borderRadiusCentralMenu;
+        border-top-right-radius: $borderRadiusCentralMenu;
+        border-left: 0;
+        display: flex;
+        .container{
+            padding: 0;
+            margin: auto;
+            @include hw((7 * $sizeMenuButton + 6 * $paddingButton), $sizeMenuButton);
+            .button {
+                margin-bottom: $paddingButton;
+            }
+        };
+    };
+    &__bottom {
+        @include hw($widthNotCentralMenuBlock, 100%);
+    };
+}
+
+.game {
+    .loacation {
+        height: 100%;
+    };
+    .battle {
+        height: 100%;
+    }
+    .dangeon {
+        height: 100%;
+    }
+}
+
+.loacation {
+    display: flex;
+    padding: 20px;
+    .move_list {
+        padding: 10px;
+        width: 20%;
+        max-width: 300px;
+        .move {
+            text-align: center;
+            margin: 10px;
+            padding: 5px 0;
+            cursor: pointer;
+            box-sizing: border-box;
+            border: 2px ridge $colorContrast;
+            border-radius: 10px;
+        }
+    };
+    .container {
+        flex-grow: 1;
+        padding: 0 20px;
+        .loacation_info {
+            display: flex;
+            flex-direction: column;
+            height: 80%;
+            .name {
+                height: 20px;
+                display: flex;
+                span {
+                    margin: auto;
+                    padding: 5px 20px;
+                    color: $colorGray;
+                    background: $colorContrast;
+                    text-align: center;
+                    position: relative;
+                    border-radius: 15px;
+                    border: 3px double $colorMain;
+                };
+                .info {
+                    @include hw(16px, 16px);
+                    position: relative;
+                    top: 30px;
+                    left: -10px;
+                }
+            };
+            .discription, .discription_advance{
+                padding: 14px 5px;
+                flex-grow: 1;
+                border-radius: 15px;
+                border: 3px double $colorContrast;
+            };
+        };
+        .location_equip_list, .location_action_list {
+            display: flex;
+            padding: 10px;
+            .button {
+                margin: 0 5px;
+            }
+            div {
+                @include hw(40px, 40px);
+            };
+        }
+        .location_equip_list {
+            float: left;
+            .back {
+                margin: 3px;
+                @include hw(34px, 34px);
+                border-radius: 5px;
+                background: $colorContrast;
+                opacity: 0.7;
+            };
+        };
+        .location_action_list {
+            float: right;
+            padding-top: 5px;
+            div {
+                @include hw(45px, 45px);
+            };
+        }
+    };
+    .npc_list {
+        padding: 10px;
+        width: 20%;
+        max-width: 300px;
+        .nps {
+            text-align: center;
+            margin: 10px;
+            padding: 5px 0;
+            cursor: pointer;
+            box-sizing: border-box;
+            border: 2px ridge $colorContrast;
+            border-radius: 10px;
+        };
+    }
+};
+
+.battle{
+    display: flex;
+    .monster {
+        width: 300px;
+        .team {
+            padding: 10px 0;
+            display: flex;
+            .container {
+                height: 40px;
+                display: flex;
+            }
+            .ball {
+                margin: 0 2px;
+                @include hw(40px, 40px);
+                * {
+                    position: absolute;
+                };
+                &__image{
+                    margin: 2px;
+                    @include hw(36px, 36px);
+                }
+                &__monster{
+                    margin: 6px;
+                    @include hw(28px, 28px);
+                }
+            };
+            .die {
+                filter: grayscale(1);
+            }
+        };
+        .container {
+            margin: auto;
+            @include hw(266px, 266px);
+            .container {
+                height: 40px;
+                position: relative;
+                top: -20px;
+                display: flex;
+                padding: 0 23px;
+            }
+        };
+        &__title {
+            text-align: center;
+            font-size: 14px;
+        };
+        &__image {
+            margin: auto;
+            @include hw(200px, 200px);
+            transform: scaleX(-1);
+        };
+        &__lvl {
+            @include hw(40px, 40px);
+            font-size: 15px;
+            text-align: center;
+            display: flex;
+            color: $colorMain;
+            .circle {
+                position: absolute;
+                margin: 2px;
+                @include hw(36px, 36px);
+                background:$colorContrast;
+            }
+            span {
+                position: relative;
+                margin: auto;
+                z-index: 1;
+            }
+        };
+        .status_list {
+            flex-grow: 1;
+        }
+        &__item {
+            @include hw(40px, 40px);
+            div {
+                @include hw(40px, 40px);
+                position: absolute;
+            }
+            .back {
+                margin: 3px;
+                @include hw(34px, 34px);
+                border-radius: 5px;
+                background: $colorContrast;
+                opacity: 0.7;
+            };
+        }
+    };
+    &__log {
+        flex-grow: 1;
+    }
+}
+
+.texting {
+    display: flex;
+    .button {
+        @include button_construct($sizeMinibutton, $sizeMinibutton);
+    };
+    .chat {
+        flex-grow: 1;
+    };
+    .people {
+        &__minimize{
+            @include hw(100%, 20px);
+        };
+        .container {
+            @include hw(100%, $widthPeople - 20px);
+            min-width: $widthPeople - 20px;
+        }
+    };
+}
+
+.info {
+    margin: 1px;
+    @include hw(13px, 13px);
+    text-align: center;
+    border-radius: 3px;
+    background: $colorContrast;
+    color: $colorMain;
+    cursor: pointer;
+}
+
+.user {
+    * {
+        display: inline-block;
+        vertical-align: bottom;
+    };
+    span {
+        cursor: pointer;
+    };
+}
+
+.chat {
+    display: flex;
+    flex-direction: column;
+    &__tabs {
+        display: flex;
+    };
+    &__tab {
+        margin-left: 5px;
+        padding: 0 10px;
+        display: flex;
+        box-sizing: border-box;
+        border: 3px solid $colorContrast;
+        border-radius: 10px;
+        font-size: 12px;
+        cursor: pointer;
+        .button {
+            position: relative;
+            top: 2px;
+            left: 4px;
+            @include button_construct(12px, 12px);
+            .circle {
+                @include hw(5px, 5px);
+                left: -4px;
+                top: -1px;
+                background: $colorContrast5;
+            };
+        };
+    };
+    .active {
+        background: $colorContrast;
+        color: $colorMain;
+        .circle{
+            background: $colorContrast2;
+        };
+    };
+    &__log {
+        padding: 5px;
+        @include hw(100%, 100%);
+        .messange {
+            font-size: 11px;
+            display: inline-block;
+            div {
+                display: inline-block;
+                vertical-align: bottom;
+            };
+            .time {
+                cursor: pointer;
+                font-size: 10px;
+                padding: 0 5px;
+                margin-top: auto;
+                color: $colorContrast;
+                text-shadow: 1px 1px 0 $colorGray;
+            };
+            .my {
+                background: $colorContrast;
+                color: $colorMain;
+            };
+        }
+    };
+    &__send {
+        padding: 0 10px;
+        padding-bottom: 5px;
+        display: flex;
+        input {
+            padding: 0 5px;
+            margin: 0 5px;
+            font-size: 12px;
+        };
+        .button {
+            margin: 0 5px;
+        }
+        .container {
+            flex-grow: 1;
+            display: flex;
+            border: 1px solid $colorContrast;
+            border-radius: 15px;
+            .button {
+                margin-right: 0;
+            };
+        }
+        #adresant {
+            box-sizing: border-box;
+            border-bottom: 1px solid $colorContrast;
+        };
+        #text_messange {
+            flex-grow: 1;
+        };
+    };
+}
+
+.people {
+    display: flex;
+    .container {
+        display: flex;
+        flex-direction: column;
+        @include hw(100%, 100%);
+        .tab_naming {
+            display: flex;
+            padding-bottom: 6px;
+            p {
+                padding-left: 5px;
+            };
+        };
+        #naming_player {
+            padding-left: $sizeMinibutton;
+        };
+        .players {
+            flex-grow: 1;
+        };
+        .battles {
+            flex-grow: 1;
+        }
+    }
+}
+
+.players {
+    display: flex;
+    flex-direction: column;
+    &__search{
+        margin: auto;
+        padding: 0 4px;
+        display: flex;
+        background: $colorContrast;
+        border-radius: 20px;
+    };
+    &__list{
+        flex-grow: 1;
+        .user {
+            font-size: 12px;
+            padding: 2px 25px;
+        };
+    };
+}
+
+.battles {
+    display: flex;
+    flex-direction: column;
+    font-size: 12px;
+    .button{
+        @include button_construct(15px, 15px);
+    }
+    .battle {
+        display: flex;
+        padding: 5px 0px;
+        margin-left: auto;
+        margin-right: auto;
+        div {
+            margin: 0 5px;
+            * {
+                margin: 0;
+            }
+        }
+    }
+}
+
+
+// display block
+.texting {
+    .container {
+    }
+    .players {
+    }
+    .battles {
+        display: none;
+    }
+}
+
+.game {
+    .loacation {
+        display: none;
+        .discription_advance {
+            display: none;
+        }
+    }
+    .battle {
+
+    }
+    .dangeon {
+        display: none;
+    }
+}

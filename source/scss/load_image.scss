@@ -1,0 +1,93 @@
+@mixin load_image($image) {
+    background: url($image);
+	background-size: 100%;
+};
+
+.button__image {
+    #profile & {
+        @include load_image("../image/profile.png");
+    };
+    #team & {
+        @include load_image("../image/icon/team.png");
+    };
+    #inventory & {
+        @include load_image("../image/icon/inventory.png");
+    };
+    #craft & {
+        @include load_image("../image/icon/craft.png");
+    };
+    #sale & {
+        @include load_image("../image/icon/sale.png");
+    };
+    #mail & {
+        @include load_image("../image/icon/mail.png");
+    };
+    #players & {
+        @include load_image("../image/icon/players.png");
+    };
+    #events & {
+        @include load_image("../image/icon/events.png");
+    };
+    #open_smile_list & {
+        @include load_image("../image/icon/smile.png");
+    };
+    #send_messange & {
+        @include load_image("../image/icon/send.png");
+    };
+    #minimize_people & {
+        @include load_image("../image/icon/minimize.png");
+    };
+    #maximize & {
+        @include load_image("../image/icon/maximize.png");
+    };
+    #local_players_search &{
+        @include load_image("../image/icon/search_main.png");
+    };
+    #open & {
+        @include load_image("../image/icon/open.png");
+        transform: scaleY(-1);
+    };
+    #rope & {
+        @include load_image("../image/icon/rope.png");
+    };
+    #fishing_rod & {
+        @include load_image("../image/icon/fishing_rod.png");
+    };
+    #archeology & {
+        @include load_image("../image/icon/archeology.png");
+    };
+    #wild & {
+        @include load_image("../image/icon/wild.png");
+    };
+    #basket & {
+        @include load_image("../image/icon/basket.png");
+    }
+};
+
+.close {
+    @include load_image("../image/icon/delete_contrast.png");
+    .active & {
+        @include load_image("../image/icon/delete_main.png");
+    }
+};
+
+.ball__image {
+    @include load_image("../image/balls/pokeball.png");
+    .inactive & {
+        @include load_image("../image/balls/pokeball_inactive.png");
+    }
+}
+
+#m1 .ball__monster {
+    @include load_image("../image/monster/mini/037.png");
+}
+
+.monster__image {
+    #player &{
+        @include load_image("../image/monster/037.webp");
+    }
+}
+
+.monster__item .image {
+    @include load_image("../image/item/amulet.png");
+}
